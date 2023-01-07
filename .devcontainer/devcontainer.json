@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "Existing Dockerfile",
+	"build": {
+		"context": ".",
+		"dockerfile": "./Dockerfile"
+	},
+	"overrideCommand": false,
+	"init": true,
+
+	"capAdd": ["SYS_PTRACE"],
+	"securityOpt": ["seccomp=unconfined"],
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools",
+				"ms-vscode.cpptools-extension-pack",
+				"github.vscode-pull-request-github",
+				"eamodio.gitlens",
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+		}
+	},
+
+	"appPort": [
+		"2222:22",
+		"5900:5900",
+		"8000:8000"
+	],
+
+	"remoteUser": "vscode"
+}
